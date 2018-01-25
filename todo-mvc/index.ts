@@ -1,9 +1,8 @@
-import Najs, { register } from 'najs'
-import * as Classes from './__autoload.classes'
+import './autoload'
+import Najs from 'najs'
 
-Najs.loadClasses(Classes)
-  .remap({ TodoRepository: 'TodoRepositoryCached' })
-  .remap('TodoRepository', 'TodoRepositoryCached')
+Najs.use(require('config'))
+  .bind('HttpDriver', 'ExpressApp')
   .start({
     port: 3000
   })
