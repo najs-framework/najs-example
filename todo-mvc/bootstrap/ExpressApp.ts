@@ -14,11 +14,5 @@ class ExpressApp extends ExpressHttpDriver {
     const app = Express()
     return app
   }
-
-  start(options: HttpDriverStartOptions) {
-    const server = Http.createServer(this.express)
-    server.listen(options.port, options.host)
-    Log.info('Listening at port ' + options.host + ' ' + options.port)
-  }
 }
 register(ExpressApp)
