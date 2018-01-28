@@ -1,9 +1,10 @@
-// import { Controller } from 'najs'
+import { register, Controller } from 'najs'
 
-// export class TodoController extends Controller {
-//   static className: string = 'TodoController'
+@register()
+export class TodoController extends Controller {
+  static className: string = 'TodoController'
 
-//   getClassName() {
-//     return TodoController.className
-//   }
-// }
+  getClassName() {
+    return TodoController.className
+  }
+}
