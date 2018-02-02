@@ -1,3 +1,5 @@
+import './app/Http/Controllers/TodoController'
 import './bootstrap/ExpressApp'
 import './bootstrap/Logger'
 import './routes/api'
+import './routes/web'

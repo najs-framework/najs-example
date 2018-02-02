@@ -1,4 +1,4 @@
-import { register, Controller } from 'najs'
+import { register, Controller, Response } from 'najs'
 
 @register()
 export class TodoController extends Controller {
@@ -6,5 +6,9 @@ export class TodoController extends Controller {
 
   getClassName() {
     return TodoController.className
+  }
+
+  getIndex() {
+    return Response.view('todo/index')
   }
 }
