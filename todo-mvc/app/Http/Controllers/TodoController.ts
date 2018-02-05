@@ -11,4 +11,9 @@ export class TodoController extends Controller {
   getIndex() {
     return Response.view('todo/index')
   }
+
+  postAddTodo() {
+    console.log(this.request['body'])
+    return Response.view('todo/index')
+  }
 }

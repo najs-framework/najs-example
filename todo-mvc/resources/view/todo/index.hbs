@@ -1,1 +1,17 @@
-<h1>Todo</h1>
+<h1>Todo Example</h1>
+<br />
+<br />
+<br />
+<h2>CSRF Protected Form</h2>
+<form method="POST" action="/todo/add">
+  <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+  <input type="text" name="name" />
+  <button>Add</button>
+</form>
+<br />
+<br />
+<h2>NOT Protected by CSRF Form</h2>
+<form method="POST" action="/todo/add">
+  <input type="text" name="name" />
+  <button>Add</button>
+</form>
