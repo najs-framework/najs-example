@@ -13,7 +13,6 @@ export class TodoController extends Controller {
   }
 
   postAddTodo() {
-    console.log(this.request['body'])
     return Response.view('todo/index')
   }
 }

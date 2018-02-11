@@ -4,14 +4,12 @@
  * You can changed files list by editing `autoload.json` file and re-run the command
  */
 
-// "bootstrap/**/*.ts"
-import './bootstrap/ExpressApp'
-import './bootstrap/Logger'
-
 // "routes/**/*.ts"
 import './routes/api'
+import './routes/Facade'
 import './routes/web'
 
 // "app/**/*.ts"
 import './app/Http/Controllers/TodoController'
 import './app/Http/HttpKernel'
+import './app/Providers/RouteServiceProvider'
