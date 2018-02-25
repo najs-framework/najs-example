@@ -3,13 +3,35 @@
  *
  * You can changed files list by editing `autoload.json` file and re-run the command
  */
+import { register } from 'najs'
 
-// "routes/**/*.ts"
+// routes/**/*.ts
 import './routes/api'
-import './routes/Facade'
 import './routes/web'
 
-// "app/**/*.ts"
-import './app/Http/Controllers/TodoController'
-import './app/Http/HttpKernel'
-import './app/Providers/RouteServiceProvider'
+// app/**/*.ts
+import * as app_Http_Controllers_TodoController from './app/Http/Controllers/TodoController'
+register_classes(app_Http_Controllers_TodoController)
+import * as app_Http_HttpKernel from './app/Http/HttpKernel'
+register_classes(app_Http_HttpKernel)
+import * as app_Lib_Repositories_TodoRepository from './app/Lib/Repositories/TodoRepository'
+register_classes(app_Lib_Repositories_TodoRepository)
+import * as app_Lib_Services_TodoService from './app/Lib/Services/TodoService'
+register_classes(app_Lib_Services_TodoService)
+import * as app_Models_Todo from './app/Models/Todo'
+register_classes(app_Models_Todo)
+import * as app_Providers_RouteServiceProvider from './app/Providers/RouteServiceProvider'
+register_classes(app_Providers_RouteServiceProvider)
+
+function register_classes(container: any) {
+  for (const name in container) {
+    const item: any = container[name]
+    if (typeof item !== 'function') {
+      continue
+    }
+    if (typeof item.className === 'string' || typeof Object.getPrototypeOf(item).getClassName === 'function') {
+      register(item)
+    }
+  }
+}
+register_classes({})

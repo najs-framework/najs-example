@@ -1,15 +1,15 @@
 import './autoload'
 import * as Path from 'path'
-import Najs, { ExpressHttpDriverServiceProvider } from 'najs'
+import Najs, { ExpressHttpDriverServiceProvider, MongooseServiceProvider } from 'najs'
 
-// Najs.bind('HttpDriver', 'ExpressApp').start()
 Najs.workingDirectory(Path.join(__dirname, '..'))
   .classes('./autoload')
   .providers([
     /*
     * Najs Framework Service Providers...
     */
-    ExpressHttpDriverServiceProvider
+    ExpressHttpDriverServiceProvider,
+    MongooseServiceProvider
     // 'CacheServiceProvider',
     // 'RedisServiceProvider',
     // 'MongooseServiceProvider',
