@@ -1,17 +1,40 @@
-<h1>Todo Example</h1>
-<br />
-<br />
-<br />
-<h2>CSRF Protected Form</h2>
-<form method="POST" action="/todo/add">
-  <input type="hidden" name="_csrf" value="{{csrfToken}}" />
-  <input type="text" name="name" />
-  <button>Add</button>
-</form>
-<br />
-<br />
-<h2>NOT Protected by CSRF Form</h2>
-<form method="POST" action="/todo/add">
-  <input type="text" name="name" />
-  <button>Add</button>
-</form>
+<div style="margin-bottom: 30px">
+  <h1 class="text-center">Todo Example</h1>
+</div>
+
+<div class="row">
+</div>
+
+{{#Session 'test'}}
+  has Session
+{{/Session}}
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="alert alert-success">
+      <h4>CSRF Protected</h4>
+      <form method="POST" action="/todo/add">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+        <input type="text" name="name" />
+        <button>Add Todo</button>
+      </form>
+    </div>
+    <div class="alert alert-danger">
+      <h4>Un-protected by CSRF</h4>
+      <form method="POST" action="/todo/add">
+        <input type="text" name="name" />
+        <button>Add Todo</button>
+      </form>
+      <br />
+      <p>Because this form is not protected by CSRF then server will be throws an error when it's summit</p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    {{#Session 'message'}}
+      {{Session 'reflash'}}
+      <div class="alert alert-success">
+        Create item "{{Session 'message'}}" successfully!
+      </div>
+    {{/Session}}
+  </div>
+</div>

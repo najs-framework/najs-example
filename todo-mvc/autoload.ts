@@ -5,10 +5,6 @@
  */
 import { register } from 'najs'
 
-// routes/**/*.ts
-import './routes/api'
-import './routes/web'
-
 // app/**/*.ts
 import * as app_Http_Controllers_TodoController from './app/Http/Controllers/TodoController'
 register_classes(app_Http_Controllers_TodoController)
@@ -22,6 +18,10 @@ import * as app_Models_Todo from './app/Models/Todo'
 register_classes(app_Models_Todo)
 import * as app_Providers_RouteServiceProvider from './app/Providers/RouteServiceProvider'
 register_classes(app_Providers_RouteServiceProvider)
+
+// routes/**/*.ts
+import './routes/api'
+import './routes/web'
 
 function register_classes(container: any) {
   for (const name in container) {

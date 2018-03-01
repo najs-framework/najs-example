@@ -15,9 +15,8 @@ export class TodoController extends ExpressController {
   }
 
   postAddTodo() {
-    this.todoService.createTodo(this.input.get('name'))
-    // this.session.clear()
-    // console.log(this.session.all())
+    // this.todoService.createTodo(this.input.get('name'))
+    this.session.flash('message', this.input.get('name'))
     return Response.back()
   }
 }

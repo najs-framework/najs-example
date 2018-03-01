@@ -1,6 +1,16 @@
 import './autoload'
 import * as Path from 'path'
-import Najs, { ExpressHttpDriverServiceProvider, MongooseServiceProvider } from 'najs'
+import Najs, {
+  register,
+  SessionHandlebarsHelper,
+  RequestDataReaderHandlebarsHelper,
+  ExpressHttpDriverServiceProvider,
+  MongooseServiceProvider,
+  HandlebarsViewServiceProvider
+} from 'najs'
+
+register(SessionHandlebarsHelper)
+register(RequestDataReaderHandlebarsHelper)
 
 Najs.workingDirectory(Path.join(__dirname, '..'))
   .classes('./autoload')
@@ -9,7 +19,8 @@ Najs.workingDirectory(Path.join(__dirname, '..'))
     * Najs Framework Service Providers...
     */
     ExpressHttpDriverServiceProvider,
-    MongooseServiceProvider
+    MongooseServiceProvider,
+    HandlebarsViewServiceProvider.withHandlebarsHelpers()
     // 'CacheServiceProvider',
     // 'RedisServiceProvider',
     // 'MongooseServiceProvider',
