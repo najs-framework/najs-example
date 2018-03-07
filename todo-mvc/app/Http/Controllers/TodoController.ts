@@ -9,6 +9,12 @@ export class TodoController extends ExpressController {
   }
 
   getIndex() {
+    console.log(this.request.cookies)
+    console.log(this.request.signedCookies)
+
+    // this.response.cookie('test', { test: 'value' }, { signed: true })
+    this.response.cookie('test', { test: 'value' }, { signed: false })
+    this.response.cookie('json', { test: 'value' }, { signed: false })
     // this.session.put('something', { test: 'value' })
     this.todoService.getTodo()
     return Response.view('todo/index')
