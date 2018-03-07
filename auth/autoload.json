@@ -1,0 +1,9 @@
+{
+  "autoload.ts": {
+    "included": {
+      "routes/**/*.ts": { "register": false },
+      "app/**/*.ts": { "register": true }
+    },
+    "excluded": []
+  }
+}
